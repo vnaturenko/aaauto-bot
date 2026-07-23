@@ -1,6 +1,10 @@
 import asyncio
 import logging
 import sqlite3
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 from datetime import datetime, timedelta
 
 from aiogram import Bot, Dispatcher, F, Router
@@ -17,8 +21,8 @@ from aiogram.types import (
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 # ==================== НАСТРОЙКИ ====================
-BOT_TOKEN = "8929985932:AAFRHiKDVvz_6xCg5bLMNOEUwFt6SFKn0I8"   # <-- сюда вставьте токен от @BotFather
-ADMIN_ID = 795935690                   # <-- сюда вставьте свой Telegram ID
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
 PROTECTION_PRICE = 500  # доплата за защиту двигателя (мойка двигателя)
 
